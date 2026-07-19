@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
      <motion.section
+      id="home"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -36,13 +37,26 @@ export default function Hero() {
        transition={{ delay: 0.4, duration: 0.8 }}
        className="mt-12 flex gap-5"
       >
-        <button className="rounded-full bg-white px-8 py-4 text-black font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-          View Projects
-        </button>
+       <div className="flex flex-wrap justify-center gap-4 mt-8">
+       <a
+         href="#projects"
+         className="rounded-full bg-white px-8 py-4 text-black font-semibold transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+         View Projects  
+       </a>
 
-        <button className="rounded-full border border-white/20 px-8 py-4 transition-all duration-300 hover:bg-white/10 hover:border-white/50">
-          Contact
-        </button>
+       <a
+         href="/resume/Ankit_Majumder_Resume.pdf"
+         target="_blank"
+         rel="noopener noreferrer"
+         className="rounded-full border border-white/20 px-8 py-4 transition-all duration-300 hover:bg-white/10 hover:border-white/50">
+         Resume
+       </a>
+       <a
+        href="#contact"
+        className="rounded-full border border-white/20 px-8 py-4 transition-all duration-300 hover:bg-white/10 hover:border-white/50">
+         Contact
+       </a>
+       </div>
       </motion.div>
     </motion.section>
   )

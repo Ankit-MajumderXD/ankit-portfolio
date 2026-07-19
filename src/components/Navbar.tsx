@@ -9,19 +9,19 @@ export default function Navbar() {
         </h1>
 
         <div className="hidden md:flex gap-10 text-sm uppercase tracking-widest">
-          <a href="#"
+          <a href="#home"
              className="transition-colors duration-300 hover:white hover:translate-y-0.5"
           >
             Home</a>
-          <a href="#"
+          <a href="#projects"
              className="transition-colors duration-300 hover:white hover:translate-y-0.5"
           >
             Projects</a>
-          <a href="#"
+          <a href="#about"
              className="transition-colors duration-300 hover:white hover:translate-y-0.5"
           >
             About</a>
-          <a href="#"
+          <a href="#contact"
              className="transition-colors duration-300 hover:white hover:translate-y-0.5"
           >
             Contact</a>
