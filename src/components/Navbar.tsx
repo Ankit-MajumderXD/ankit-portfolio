@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import profile from "../assets/profile.png";
 
 const NAV_LINKS = [
@@ -9,9 +10,15 @@ const NAV_LINKS = [
 ];
 
 export default function Navbar() {
-  const [active, setActive] = useState("home");
+  const location = useLocation();
+
+  const isHome = location.pathname === "/";
+
+  const [active, setActive] = useState("");
 
   useEffect(() => {
+    if (!isHome) return;
+
     const sections = NAV_LINKS.map((link) =>
       document.getElementById(link.id)
     ).filter((el): el is HTMLElement => el !== null);
@@ -35,28 +42,32 @@ export default function Navbar() {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, []);
+  }, [isHome]);
 
   return (
     <nav className="fixed top-5 left-0 w-full z-50">
       <div className="max-w-6xl mx-auto px-8">
         <div className="h-16 rounded-full bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl flex items-center justify-between px-8">
 
-          <a href="#home">
+          <Link
+            to="/"
+            state={{ scrollTo: "home" }}
+          >
             <img
               src={profile}
               alt="Ankit"
               className="w-10 h-10 rounded-full object-cover border border-white/20 transition-all duration-300 hover:scale-105"
             />
-          </a>
+          </Link>
 
           <div className="hidden md:flex gap-10 text-sm uppercase tracking-widest">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.id}
-                href={`#${link.id}`}
+                to="/"
+                state={{ scrollTo: link.id }}
                 className={`relative transition-all duration-300 hover:text-white ${
-                  active === link.id
+                  isHome && active === link.id
                     ? "text-white"
                     : "text-white/60"
                 }`}
@@ -65,12 +76,12 @@ export default function Navbar() {
 
                 <span
                   className={`absolute left-1/2 -translate-x-1/2 -bottom-3 h-2 w-2 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-all duration-300 ${
-                    active === link.id
+                    isHome && active === link.id
                       ? "opacity-100 scale-100"
                       : "opacity-0 scale-0"
                   }`}
                 />
-              </a>
+              </Link>
             ))}
           </div>
 
