@@ -5,6 +5,16 @@ import fidusImg from "../assets/projects/fidus.png";
 
 export const projects = [
   {
+    id: "chora",
+    title: "Chõra",
+    image: choraImg,
+    description:
+      "AI-assisted predictive command platform for deep-space exploration, underwater operations, offshore infrastructure, and autonomous robotics.",
+    status: "Concept",
+    tech: ["AI", "Predictive Intelligence", "Telemetry", "Research"],
+  },
+
+  {
     id: "astro-rescue-ai",
     title: "Astro Rescue AI",
     image: astrotrackImg,
@@ -22,16 +32,6 @@ export const projects = [
       "An AI assistant designed to help farmers and students with crop guidance, weather insights, finance, and career support.",
     status: "Research & Prototype",
     tech: ["React", "AI", "Weather API", "LLM"],
-  },
-
-  {
-    id: "chora",
-    title: "Chõra",
-    image: choraImg,
-    description:
-      "AI-assisted predictive command platform for deep-space exploration, underwater operations, offshore infrastructure, and autonomous robotics.",
-    status: "Concept",
-    tech: ["AI", "Predictive Intelligence", "Telemetry", "Research"],
   },
 
   {

@@ -10,6 +10,7 @@ import Challenges from "../components/mirofish/Challenges";
 import Results from "../components/mirofish/Results";
 import Roadmap from "../components/mirofish/Roadmap";
 import FooterCTA from "../components/mirofish/FooterCTA";
+import CompanionModules from "../components/mirofish/CompanionModules";
 
 export default function MiroFish() {
   useEffect(() => {
@@ -24,6 +25,7 @@ export default function MiroFish() {
       <Hero />
       <Problem />
       <Solution />
+      <CompanionModules />
       <Architecture />
       <TechStack />
       <Workflow />

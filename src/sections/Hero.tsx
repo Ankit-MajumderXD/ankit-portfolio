@@ -45,11 +45,10 @@ export default function Hero() {
        </a>
 
        <a
-         href="/resume/Ankit_Majumder_Resume.pdf"
-         target="_blank"
+         href="#about"
          rel="noopener noreferrer"
          className="rounded-full border border-white/20 px-8 py-4 transition-all duration-300 hover:bg-white/10 hover:border-white/50">
-         Resume
+         About Me
        </a>
        <a
         href="#contact"
