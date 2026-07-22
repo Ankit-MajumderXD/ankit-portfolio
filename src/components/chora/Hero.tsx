@@ -40,14 +40,19 @@ export default function Hero() {
 
         <div className="mt-16 flex flex-wrap gap-5">
 
-          <button className="rounded-full bg-white px-10 py-5 font-semibold text-black transition hover:scale-105">
+          <a
+           href="#architecture"
+           className="rounded-full bg-white px-10 py-5 font-semibold text-black transition hover:scale-105"
+           >
             Explore Architecture
-          </button>
+          </a>
 
-          <button className="rounded-full border border-white/20 px-10 py-5 transition hover:bg-white/10">
-            View Source
-          </button>
-
+          <a
+           href="#contact"
+           className="rounded-full border border-white/20 px-10 py-5 transition hover:bg-white/10"
+           >
+            Connect
+          </a>
         </div>
 
       </div>

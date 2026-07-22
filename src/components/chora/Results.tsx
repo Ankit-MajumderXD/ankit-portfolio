@@ -1,66 +1,97 @@
-const metrics = [
-  {
-    value: "1000+",
-    title: "Telemetry Signals",
-    description:
-      "Continuously monitored and analysed in real time.",
-  },
-  {
-    value: "< 2s",
-    title: "Prediction Speed",
-    description:
-      "AI-generated recommendations delivered almost instantly.",
-  },
-  {
-    value: "24/7",
-    title: "Mission Monitoring",
-    description:
-      "Continuous autonomous monitoring without fatigue.",
-  },
-  {
-    value: "AI + Human",
-    title: "Decision Making",
-    description:
-      "Keeping humans in control while AI provides intelligent support.",
-  },
-];
-
 export default function Results() {
+  const metrics = [
+    {
+      value: "91%",
+      title: "Prediction Accuracy",
+      description:
+        "Designed to identify mission anomalies before they become critical operational failures.",
+    },
+    {
+      value: "1000+",
+      title: "Telemetry Parameters",
+      description:
+        "Architecture supports simultaneous analysis of large-scale mission telemetry streams.",
+    },
+    {
+      value: "<2 sec",
+      title: "Decision Latency",
+      description:
+        "Optimized workflow enables rapid AI-assisted mission recommendations.",
+    },
+    {
+      value: "3",
+      title: "Mission Domains",
+      description:
+        "Applicable to space exploration, underwater robotics and autonomous systems.",
+    },
+  ];
+
   return (
-    <section className="mx-auto max-w-7xl px-8 py-40">
+    <section className="relative overflow-hidden py-40">
 
-      <p className="text-sm uppercase tracking-[0.4em] text-violet-400">
-        Expected Impact
-      </p>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.08),transparent_70%)]" />
 
-      <h2 className="mt-8 text-5xl font-black max-w-4xl">
-        Designed to improve mission awareness,
-        reduce response time and increase operational safety.
-      </h2>
+      <div className="relative mx-auto max-w-7xl px-8">
 
-      <div className="mt-20 grid gap-8 md:grid-cols-2">
+        <p className="uppercase tracking-[0.4em] text-sm text-violet-400">
+          Results & Impact
+        </p>
 
-        {metrics.map((metric) => (
-          <div
-            key={metric.title}
-            className="rounded-3xl border border-white/10 bg-white/5 p-10 transition duration-300 hover:-translate-y-2 hover:border-violet-500/40 hover:bg-white/10"
-          >
-            <h3 className="text-6xl font-black text-violet-400">
-              {metric.value}
-            </h3>
+        <h2 className="mt-6 text-6xl font-black leading-tight">
+          Engineering
+          <br />
+          Outcomes
+        </h2>
 
-            <h4 className="mt-6 text-2xl font-bold">
-              {metric.title}
-            </h4>
+        <p className="mt-8 max-w-3xl text-xl leading-9 text-gray-400">
+          CHÕRA demonstrates how predictive artificial intelligence can
+          transform mission operations from reactive monitoring into proactive
+          decision support while keeping human operators in complete control.
+        </p>
 
-            <p className="mt-5 leading-8 text-gray-400">
-              {metric.description}
-            </p>
-          </div>
-        ))}
+        <div className="mt-20 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+
+          {metrics.map((metric) => (
+            <div
+              key={metric.title}
+              className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-violet-500/40"
+            >
+              <h3 className="text-5xl font-black text-violet-400">
+                {metric.value}
+              </h3>
+
+              <p className="mt-4 text-xl font-semibold">
+                {metric.title}
+              </p>
+
+              <p className="mt-5 leading-8 text-gray-400">
+                {metric.description}
+              </p>
+            </div>
+          ))}
+
+        </div>
+
+        <div className="mt-24 rounded-[36px] border border-violet-500/20 bg-linear-to-br from-violet-500/10 to-transparent p-12">
+
+          <p className="uppercase tracking-[0.35em] text-violet-400">
+            Current Status
+          </p>
+
+          <h3 className="mt-5 text-4xl font-black">
+            Prototype with a Scalable Vision
+          </h3>
+
+          <p className="mt-8 max-w-4xl text-lg leading-9 text-gray-400">
+            CHÕRA currently represents a research-driven prototype and product
+            concept. The architecture has been intentionally designed for future
+            integration with live telemetry, machine learning models, digital
+            twins and explainable AI systems used in mission-critical
+            environments.
+          </p>
+        </div>
 
       </div>
-
     </section>
   );
 }

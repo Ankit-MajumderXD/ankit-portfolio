@@ -23,7 +23,9 @@ export default function Architecture() {
   ];
 
   return (
-    <section className="mx-auto max-w-7xl px-8 py-40">
+    <section 
+     id="architecture"
+    className="mx-auto max-w-7xl px-8 py-40">
 
       <p className="text-sm uppercase tracking-[0.4em] text-violet-400">
         System Architecture

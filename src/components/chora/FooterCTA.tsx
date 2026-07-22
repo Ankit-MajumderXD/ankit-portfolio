@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 
 export default function CTA() {
   return (
-    <section className="relative overflow-hidden py-40">
+    <section
+     id="contact"
+     className="relative overflow-hidden py-40">
 
       {/* Background Glow */}
       <div className="absolute left-1/2 top-1/2 h-125 w-125 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-500/20 blur-[180px]" />

@@ -8,6 +8,7 @@ import Results from "../components/chora/Results";
 import Workflow from "../components/chora/Workflow";
 import Roadmap from "../components/chora/Roadmap";
 import FooterCTA from "../components/chora/FooterCTA";
+import Challenges from "../components/chora/Challenges";
 
 export default function Chora() {
   useEffect(() => {
@@ -24,8 +25,9 @@ export default function Chora() {
       <Solution />
       <Architecture />
       <TechStack />
-      <Results />
       <Workflow />
+      <Challenges />
+      <Results />
       <Roadmap />
       <FooterCTA />
     </main>
