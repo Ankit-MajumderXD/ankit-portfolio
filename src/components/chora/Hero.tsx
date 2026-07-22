@@ -87,7 +87,7 @@ export default function Hero() {
             href="#contact"
             className="rounded-full border border-white/20 px-10 py-5 transition-all duration-300 hover:bg-white/10 hover:border-white/50"
           >
-            View Source
+            Connect
           </a>
         </motion.div>
       </div>
