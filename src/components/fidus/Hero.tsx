@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import heroImg from "../../assets/case-studies/fidus-hero.png";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
@@ -11,8 +12,15 @@ export default function Hero() {
       <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-20 px-8 py-32 md:flex-row md:px-20">
 
         {/* Left */}
-        <div className="flex-1">
-
+        <motion.div
+          className="flex-1"
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ 
+            duration: 0.9,
+            ease: "easeOut",
+          }}
+        >
           <Link
             to="/"
             state={{ scrollTo: "projects" }}
@@ -44,7 +52,7 @@ export default function Hero() {
             health analytics.
           </p>
 
-          <div className="mt-16 flex flex-wrap gap-5">
+          <motion.div className="mt-16 flex flex-wrap gap-5">
 
             <a
               href="#architecture"
@@ -60,15 +68,15 @@ export default function Hero() {
               Connect
             </a>
 
-          </div>
+          </motion.div>
 
-        </div>
+        </motion.div>
 
         {/* Right */}
 
-        <div className="flex-1">
+        <motion.div className="flex-1">
 
-          <div className="overflow-hidden rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-xl">
+          <motion.div className="overflow-hidden rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-xl">
 
             <img
               src={heroImg}
@@ -76,12 +84,11 @@ export default function Hero() {
               className="w-full object-cover"
             />
 
-          </div>
+          </motion.div>
 
-        </div>
+        </motion.div>
 
       </div>
-
     </section>
   );
 }
