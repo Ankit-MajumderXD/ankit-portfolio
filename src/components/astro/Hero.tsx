@@ -3,11 +3,11 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-black">
+    <section className="relative flex min-h-screen items-center overflow-hidden pt-28 md:pt-20">
       {/* Background Glow */}
       <div className="absolute left-1/2 top-1/2 h-175 w-175 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/20 blur-[180px]" />
 
-      <div className="relative mx-auto w-full max-w-7xl px-8 md:px-20">
+      <div className="relative mx-auto w-full max-w-7xl px-5 sm:px-8 md:px-20">
 
         {/* Back Button */}
         <motion.div
@@ -39,11 +39,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 35 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="mt-8 text-7xl font-black leading-none md:text-[8rem]"
+          className="mt-8 text-5xl sm:text-6xl md:text-7xl lg:text-[8rem] font-black leading-none"
         >
-          Astro
+          ASTRO
           <br />
-          Rescue AI
+          RESCUE AI
         </motion.h1>
 
         {/* Subtitle */}
@@ -51,7 +51,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.45, duration: 0.8 }}
-          className="mt-8 max-w-3xl text-2xl font-light leading-tight md:text-5xl"
+          className="mt-8 max-w-3xl text-xl sm:text-2xl md:text-5xl font-light leading-tight"
         >
           AI-Powered Satellite
           <br />
@@ -63,7 +63,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.65, duration: 0.8 }}
-          className="mt-10 max-w-2xl text-lg leading-9 text-gray-400"
+          className="mt-8 max-w-2xl text-base sm:text-lg leading-8 text-gray-400"
         >
           An intelligent rescue platform that predicts safe landing zones,
           analyses satellite imagery, detects terrain risks and assists
@@ -75,7 +75,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.8 }}
-          className="mt-16 flex flex-wrap gap-5"
+          className="mt-12 flex flex-wrap gap-4"
         >
           <button
             onClick={() =>
@@ -83,7 +83,7 @@ export default function Hero() {
                 .getElementById("architecture")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="rounded-full bg-white px-10 py-5 font-semibold text-black transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+            className="rounded-full bg-white px-6 py-3 sm:px-8 sm:py-4 font-semibold text-black transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           >
             Explore Architecture
           </button>

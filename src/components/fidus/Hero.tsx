@@ -33,7 +33,7 @@ export default function Hero() {
             Healthcare AI Platform
           </p>
 
-          <h1 className="mt-6 text-7xl font-black leading-none md:text-[8rem]">
+          <h1 className="mt-8 text-5xl sm:text-6xl md:text-7xl lg:text-[8rem] font-black leading-none">
             FIDUS
           </h1>
 

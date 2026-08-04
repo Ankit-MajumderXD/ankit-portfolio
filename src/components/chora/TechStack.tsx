@@ -21,23 +21,23 @@ export default function TechStack() {
         Technology Stack
       </p>
 
-      <h2 className="mt-8 text-5xl font-black">
+      <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
         Built using modern AI infrastructure.
       </h2>
 
-      <p className="mt-8 max-w-3xl text-lg leading-9 text-gray-400">
+      <p className="mt-6 max-w-3xl text-base sm:text-lg leading-7 sm:leading-8 text-gray-400 px-2">
         CHÕRA combines modern frontend technologies with scalable AI
         infrastructure to deliver fast, reliable and intelligent
         mission support.
       </p>
 
-      <div className="mt-20 flex flex-wrap gap-5">
+      <div className="mt-14 sm:mt-20 flex flex-wrap gap-3 sm:gap-5">
 
         {technologies.map((tech) => (
 
           <div
             key={tech}
-            className="rounded-2xl border border-white/10 bg-white/5 px-8 py-5 text-lg transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/40 hover:bg-violet-500/10 hover:shadow-[0_0_30px_rgba(139,92,246,0.35)]"
+            className="rounded-2xl border border-white/10 bg-white/5 px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-5 text-sm sm:text-base md:text-lg transition-all duration-300 hover:-translate-y-2 hover:border-violet-500/40 hover:bg-violet-500/10 hover:shadow-[0_0_30px_rgba(139,92,246,0.35)]"
           >
             {tech}
           </div>

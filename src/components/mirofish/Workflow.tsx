@@ -44,7 +44,7 @@ export default function Workflow() {
         Workflow
       </p>
 
-      <h2 className="mt-6 text-5xl font-black leading-tight md:text-7xl">
+      <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
         From question
         <br />
         to intelligent
@@ -52,22 +52,22 @@ export default function Workflow() {
         guidance.
       </h2>
 
-      <div className="mt-20 space-y-10">
+      <div className="mt-12 md:mt-20 space-y-6 md:space-y-10">
         {workflow.map((item) => (
           <div
             key={item.step}
-            className="flex gap-8 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-emerald-400/30"
+            className="flex gap-4 md:gap-8 rounded-3xl border border-white/10 bg-white/5 p-5 md:p-8 backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-emerald-400/30"
           >
-            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-2xl font-black text-white">
+            <div className="flex h-11 w-11 sm:h-12 sm:w-12 md:h-16 md:w-16 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-base sm:text-lg md:text-2xl font-black text-white">
               {item.step}
             </div>
 
-            <div>
-              <h3 className="text-2xl font-bold">
+            <div className="min-w-0 flex-1">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold">
                 {item.title}
               </h3>
 
-              <p className="mt-4 leading-8 text-gray-400">
+              <p className="mt-3 text-sm sm:text-base leading-6 sm:leading-7 md:leading-8 text-gray-400">
                 {item.description}
               </p>
             </div>

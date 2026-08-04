@@ -6,13 +6,13 @@ export default function Problem() {
         Healthcare Challenge
       </p>
 
-      <div className="mt-10 grid items-center gap-16 md:grid-cols-2">
+      <div className="mt-8 grid items-center gap-10 md:gap-16 md:grid-cols-2">
 
         {/* Left */}
 
         <div>
 
-          <h2 className="text-6xl font-black leading-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight">
             Healthcare
             <br />
             Shouldn't Be
@@ -20,14 +20,14 @@ export default function Problem() {
             This Hard.
           </h2>
 
-          <p className="mt-10 text-lg leading-9 text-gray-400">
+          <p className="mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-400">
             Accessing quality healthcare remains fragmented for millions of
             patients. Finding the right specialist often depends on location,
             availability and trust, while navigating appointments,
             follow-ups and ongoing care can become overwhelming.
           </p>
 
-          <p className="mt-8 text-lg leading-9 text-gray-400">
+          <p className="mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-400">
             Existing healthcare platforms focus on booking appointments.
             Patients need something more—an intelligent platform that guides
             every step of their healthcare journey.
@@ -37,36 +37,36 @@ export default function Problem() {
 
         {/* Right */}
 
-        <div className="grid gap-6">
+        <div className="grid gap-5 sm:gap-6">
 
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-            <h3 className="text-xl font-semibold">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 backdrop-blur-xl">
+            <h3 className="text-lg sm:text-xl font-semibold">
               Fragmented Care
             </h3>
 
-            <p className="mt-4 leading-8 text-gray-400">
+            <p className="mt-3 text-sm sm:text-base leading-7 sm:leading-8 text-gray-400">
               Patients struggle to discover trusted specialists within their
               region and often rely on scattered information.
             </p>
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-            <h3 className="text-xl font-semibold">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 backdrop-blur-xl">
+            <h3 className="text-lg sm:text-xl font-semibold">
               Long Waiting Times
             </h3>
 
-            <p className="mt-4 leading-8 text-gray-400">
+            <p className="mt-3 text-sm sm:text-base leading-7 sm:leading-8 text-gray-400">
               Specialist appointments can take weeks, delaying diagnosis
               and treatment, especially outside metropolitan cities.
             </p>
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
-            <h3 className="text-xl font-semibold">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 backdrop-blur-xl">
+            <h3 className="text-lg sm:text-xl font-semibold">
               No Intelligent Guidance
             </h3>
 
-            <p className="mt-4 leading-8 text-gray-400">
+            <p className="mt-3 text-sm sm:text-base leading-7 sm:leading-8 text-gray-400">
               Most healthcare apps stop at appointment booking instead of
               helping patients understand the next best clinical step.
             </p>

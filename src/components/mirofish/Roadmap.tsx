@@ -33,7 +33,7 @@ export default function Roadmap() {
         Future Roadmap
       </p>
 
-      <h2 className="mt-6 text-5xl font-black leading-tight md:text-7xl">
+      <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
         Growing into a
         <br />
         nationwide AI
@@ -41,22 +41,22 @@ export default function Roadmap() {
         assistance platform.
       </h2>
 
-      <div className="mt-20 space-y-8">
+      <div className="mt-12 md:mt-20 space-y-6 md:space-y-8">
 
         {roadmap.map((item) => (
           <div
             key={item.phase}
-            className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-emerald-400/30"
+            className="rounded-3xl border border-white/10 bg-white/5 p-5 sm:p-8 backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-emerald-400/30"
           >
-            <p className="font-semibold uppercase tracking-widest text-emerald-400">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-emerald-400">
               {item.phase}
             </p>
 
-            <h3 className="mt-3 text-3xl font-bold">
+            <h3 className="mt-3 text-xl sm:text-2xl md:text-3xl font-bold">
               {item.title}
             </h3>
 
-            <p className="mt-5 leading-8 text-gray-400">
+            <p className="mt-4 text-base sm:text-lg leading-7 sm:leading-8 text-gray-400">
               {item.description}
             </p>
           </div>

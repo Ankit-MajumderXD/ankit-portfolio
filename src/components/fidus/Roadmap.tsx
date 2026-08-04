@@ -33,7 +33,7 @@ export default function Roadmap() {
         Future Roadmap
       </p>
 
-      <h2 className="mt-6 text-5xl font-black leading-tight md:text-7xl">
+      <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
         Building the
         <br />
         future of digital
@@ -41,28 +41,28 @@ export default function Roadmap() {
         healthcare.
       </h2>
 
-      <p className="mt-8 max-w-3xl text-lg leading-9 text-gray-400">
+      <p className="mt-6 max-w-3xl text-base sm:text-lg leading-7 sm:leading-8 text-gray-400">
         Fidus is designed as a long-term healthcare platform that grows
         from intelligent patient assistance into a nationwide ecosystem
         connecting every stakeholder in healthcare.
       </p>
 
-      <div className="mt-20 space-y-8">
+      <div className="mt-12 sm:mt-20 space-y-6 sm:space-y-8">
 
         {roadmap.map((item) => (
           <div
             key={item.phase}
-            className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-cyan-400/30"
+            className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-cyan-400/30"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
+            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] sm:tracking-[0.3em] text-cyan-400">
               {item.phase}
             </p>
 
-            <h3 className="mt-4 text-3xl font-bold">
+            <h3 className="mt-3 text-2xl sm:text-3xl font-bold">
               {item.title}
             </h3>
 
-            <p className="mt-5 leading-8 text-gray-400">
+            <p className="mt-4 text-sm sm:text-base leading-7 sm:leading-8 text-gray-400">
               {item.description}
             </p>
           </div>

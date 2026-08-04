@@ -33,38 +33,38 @@ export default function Roadmap() {
         Vision & Roadmap
       </p>
 
-      <h2 className="mt-8 max-w-4xl text-5xl font-black">
+      <h2 className="mt-6 max-w-4xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
         Building the future of intelligent mission control.
       </h2>
 
-      <div className="relative mt-24">
+      <div className="relative mt-14 sm:mt-20">
 
-        <div className="absolute left-7 top-0 h-full w-0.5 bg-linear-to-b from-violet-500 to-transparent"></div>
+        <div className="absolute left-6 sm:left-7 top-0 h-full w-0.5 bg-linear-to-b from-violet-500 to-transparent"></div>
 
-        <div className="space-y-16">
+        <div className="space-y-8 sm:space-y-12 md:space-y-16">
 
           {roadmap.map((item) => (
 
             <div
               key={item.year}
-              className="relative flex gap-10"
+              className="relative flex items-start gap-4 sm:gap-6 md:gap-10"
             >
 
-              <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-violet-500 font-bold shadow-[0_0_30px_rgba(139,92,246,.45)]">
+              <div className="relative z-10 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-violet-500 text-sm sm:text-base font-bold shrink-0 shadow-[0_0_30px_rgba(139,92,246,.45)]">
                 ✓
               </div>
 
-              <div className="flex-1 rounded-3xl border border-white/10 bg-white/5 p-8 transition duration-300 hover:border-violet-500/40 hover:bg-white/10">
+              <div className="min-w-0 flex-1 rounded-3xl border border-white/10 bg-white/5 p-5 sm:p-6 md:p-8 transition duration-300 hover:border-violet-500/40 hover:bg-white/10">
 
-                <p className="text-violet-400 font-semibold tracking-widest uppercase">
+                <p className="text-xs sm:text-sm text-violet-400 font-semibold tracking-widest uppercase">
                   {item.year}
                 </p>
 
-                <h3 className="mt-2 text-3xl font-bold">
+                <h3 className="mt-2 text-xl sm:text-2xl md:text-3xl font-bold">
                   {item.title}
                 </h3>
 
-                <p className="mt-5 leading-8 text-gray-400">
+                <p className="mt-4 text-sm sm:text-base leading-7 sm:leading-8 text-gray-400">
                   {item.description}
                 </p>
 

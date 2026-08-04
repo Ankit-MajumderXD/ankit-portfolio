@@ -29,7 +29,7 @@ export default function Results() {
         Project Highlights
       </p>
 
-      <h2 className="mt-6 text-5xl font-black leading-tight md:text-7xl">
+      <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
         Designed to create
         <br />
         meaningful impact
@@ -37,24 +37,24 @@ export default function Results() {
         through AI.
       </h2>
 
-      <p className="mt-8 max-w-3xl text-lg leading-9 text-gray-400">
+      <p className="mt-6 max-w-3xl text-base sm:text-lg leading-7 sm:leading-8 text-gray-400">
         Miro Fish demonstrates how one intelligent platform can simplify
         access to critical information for farmers and students by combining
         multiple services into a single AI-powered experience.
       </p>
 
-      <div className="mt-20 grid gap-8 md:grid-cols-2">
+      <div className="mt-12 md:mt-20 grid gap-6 md:gap-8 grid-cols-1 md:grid-cols-2">
 
         {highlights.map((item) => (
           <div
             key={item.title}
-            className="rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-emerald-400/30"
+            className="rounded-3xl border border-white/10 bg-white/5 p-5 sm:p-8 md:p-10 backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-emerald-400/30"
           >
-            <h3 className="text-3xl font-bold">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold">
               {item.title}
             </h3>
 
-            <p className="mt-6 leading-8 text-gray-400">
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-400">
               {item.description}
             </p>
           </div>

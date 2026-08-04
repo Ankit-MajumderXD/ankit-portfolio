@@ -6,7 +6,7 @@ export default function Problem() {
         The Problem
       </p>
 
-      <h2 className="mt-6 max-w-5xl text-5xl font-black leading-tight md:text-7xl">
+      <h2 className="mt-6 max-w-5xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
         Millions of farmers and
         <br />
         students struggle to access
@@ -14,14 +14,14 @@ export default function Problem() {
         reliable information.
       </h2>
 
-      <div className="mt-16 grid gap-16 md:grid-cols-2">
+      <div className="mt-12 md:mt-16 grid gap-10 md:gap-16 grid-cols-1 md:grid-cols-2">
 
         <div>
-          <h3 className="mb-6 text-2xl font-bold">
+          <h3 className="mb-4 sm:mb-6 text-xl sm:text-2xl font-bold">
             Farmers
           </h3>
 
-          <p className="leading-9 text-gray-400">
+          <p className="text-base sm:text-lg leading-7 sm:leading-8 text-gray-400">
             Farmers often rely on fragmented information for weather,
             crop diseases, market prices and government schemes. This
             leads to delayed decisions, reduced productivity and financial
@@ -30,11 +30,11 @@ export default function Problem() {
         </div>
 
         <div>
-          <h3 className="mb-6 text-2xl font-bold">
+          <h3 className="mb-4 sm:mb-6 text-xl sm:text-2xl font-bold">
             Students
           </h3>
 
-          <p className="leading-9 text-gray-400">
+          <p className="text-base sm:text-lg leading-7 sm:leading-8 text-gray-400">
             Students, especially in rural regions, face difficulty finding
             trustworthy guidance for careers, scholarships, competitive
             exams and educational resources in one accessible platform.

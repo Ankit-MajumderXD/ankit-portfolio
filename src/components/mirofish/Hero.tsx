@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-black">
+    <section className="relative flex min-h-screen items-center overflow-hidden pt-28 md:pt-20">
       {/* Background Glow */}
       <div className="absolute left-1/2 top-1/2 h-175 w-175 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/20 blur-[180px]" />
 
@@ -36,11 +36,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 35 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="mt-8 text-7xl font-black leading-none md:text-[8rem]"
+          className="mt-8 text-5xl sm:text-6xl md:text-7xl lg:text-[8rem] font-black leading-none"
         >
-          Miro
+          MIRO
           <br />
-          Fish
+          FISH
         </motion.h1>
 
         <motion.h2

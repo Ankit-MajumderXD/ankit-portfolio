@@ -15,19 +15,19 @@ export default function FooterCTA() {
           What's Next?
         </p>
 
-        <h2 className="mt-8 text-6xl font-black leading-tight md:text-7xl">
+        <h2 className="mt-8 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight wrap-break-word">
           Empowering people
           <br />
           through AI.
         </h2>
 
-        <p className="mx-auto mt-10 max-w-3xl text-xl leading-9 text-gray-400">
+        <p className="mx-auto mt-8 max-w-3xl text-base sm:text-lg md:text-xl leading-7 sm:leading-8 text-gray-400 px-2">
           Miro Fish demonstrates how Artificial Intelligence can bridge
           information gaps for farmers and students by delivering
           accessible, reliable and practical guidance through one platform.
         </p>
 
-        <div className="mt-16 flex flex-wrap justify-center gap-6">
+        <div className="mt-12 flex flex-col sm:flex-row justify-center gap-4">
 
           <a
             href="https://github.com/Ankit-MajumderXD"
@@ -49,13 +49,13 @@ export default function FooterCTA() {
 
         </div>
 
-        <div className="mt-28 rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-xl">
+        <div className="mt-20 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 md:p-10 backdrop-blur-xl">
 
           <p className="uppercase tracking-[0.35em] text-sm text-gray-400">
             Continue Exploring
           </p>
 
-          <h3 className="mt-6 text-4xl font-black">
+          <h3 className="mt-6 text-3xl sm:text-4xl font-black">
             Fidus
           </h3>
 

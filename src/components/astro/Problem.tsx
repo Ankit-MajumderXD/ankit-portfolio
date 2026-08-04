@@ -6,7 +6,7 @@ export default function Problem() {
         The Problem
       </p>
 
-      <h2 className="mt-6 max-w-5xl text-5xl font-black leading-tight md:text-7xl">
+      <h2 className="mt-6 max-w-5xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
         Rescue missions lose valuable
         <br />
         time because critical satellite
@@ -14,14 +14,14 @@ export default function Problem() {
         data is difficult to interpret.
       </h2>
 
-      <div className="mt-16 grid gap-16 md:grid-cols-2">
+      <div className="mt-10 sm:mt-16 grid gap-8 sm:gap-12 md:grid-cols-2">
 
         <div>
-          <h3 className="mb-6 text-2xl font-bold">
+          <h3 className="mb-4 text-xl sm:text-2xl font-bold">
             Current Situation
           </h3>
 
-          <p className="leading-9 text-gray-400">
+          <p className="text-sm sm:text-base leading-7 sm:leading-8 text-gray-400">
             During satellite emergencies, engineers receive large amounts
             of imagery and telemetry within minutes. Identifying safe
             landing zones, terrain hazards and rescue paths often requires

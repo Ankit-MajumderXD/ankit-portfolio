@@ -40,7 +40,7 @@ export default function TechStack() {
         Technology Stack
       </p>
 
-      <h2 className="mt-6 text-5xl font-black leading-tight md:text-7xl">
+      <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
         Built with
         <br />
         modern AI
@@ -48,20 +48,20 @@ export default function TechStack() {
         technologies.
       </h2>
 
-      <p className="mt-8 max-w-3xl text-lg leading-9 text-gray-400">
+      <p className="mt-6 max-w-3xl text-base sm:text-lg leading-7 sm:leading-8 text-gray-400">
         Fidus combines modern web technologies, Artificial Intelligence,
         secure backend services and healthcare integrations to create a
         scalable digital healthcare ecosystem.
       </p>
 
-      <div className="mt-20 grid gap-8 md:grid-cols-2">
+      <div className="mt-12 md:mt-20 grid gap-6 md:gap-8 md:grid-cols-2">
 
         {categories.map((category) => (
           <div
             key={category.title}
-            className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-cyan-400/30"
+            className="rounded-3xl border border-white/10 bg-white/5 p-5 sm:p-8 backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-cyan-400/30"
           >
-            <h3 className="text-2xl font-bold">
+            <h3 className="text-xl sm:text-2xl font-bold">
               {category.title}
             </h3>
 
@@ -69,7 +69,7 @@ export default function TechStack() {
               {category.items.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full bg-white/10 px-4 py-2 text-sm"
+                  className="rounded-full bg-white/10 px-3 py-2 sm:px-4 text-xs sm:text-sm"
                 >
                   {item}
                 </span>
