@@ -7,8 +7,10 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
 export default function Home() {
+  // Stays dark in both themes until these sections move onto the design
+  // tokens (Phase 3).
   return (
-    <>
+    <div className="dark bg-black text-white">
       <Hero />
       <Projects />
       <About />
@@ -16,6 +18,6 @@ export default function Home() {
       <Skills />
       <Contact />
       <Footer />
-    </>
+    </div>
   );
 }

@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-8 text-center">
 
         <h3 className="text-2xl font-bold">
-          @roguefista
+          Ankit Majumder
         </h3>
 
         <p className="mt-3 text-gray-400">

@@ -1,19 +1,184 @@
 @import "tailwindcss";
-html {
-    scroll-behavior: smooth;
+
+/* Dark mode follows the `.dark` class on <html>, set by the theme script in
+   index.html and by ThemeProvider. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------ */
+/* Theme values. Light is the default; `.dark` overrides.               */
+/* ------------------------------------------------------------------ */
+
+:root {
+  --theme-canvas: #f7f5f0;          /* warm off-white page */
+  --theme-surface: #fdfcf9;         /* cards */
+  --theme-surface-2: #efece4;       /* raised / hovered */
+  --theme-fg: #16191b;
+  --theme-fg-muted: #4a4f53;
+  --theme-fg-subtle: #6b6f72;
+  --theme-line: rgb(22 25 27 / 0.1);
+  --theme-line-strong: rgb(22 25 27 / 0.2);
+
+  /* Accents are one step darker in light mode to keep text contrast. */
+  --theme-accent: var(--color-emerald-700);
+  --theme-accent-solid: var(--color-emerald-600);
+  --theme-accent-soft: rgb(5 150 105 / 0.1);
+  --theme-accent-2: var(--color-cyan-700);
+  --theme-accent-2-soft: rgb(8 145 178 / 0.1);
+  --theme-on-accent: #ffffff;
+
+  --theme-shadow-card: 0 1px 2px rgb(22 25 27 / 0.04), 0 8px 24px -12px rgb(22 25 27 / 0.12);
 }
+
+.dark {
+  --theme-canvas: #0e1011;          /* charcoal, not pure black */
+  --theme-surface: #15181a;
+  --theme-surface-2: #1c2023;
+  --theme-fg: #ecebe6;
+  --theme-fg-muted: #a3a7a9;
+  --theme-fg-subtle: #7d8285;
+  --theme-line: rgb(236 235 230 / 0.08);
+  --theme-line-strong: rgb(236 235 230 / 0.16);
+
+  --theme-accent: var(--color-emerald-400);
+  --theme-accent-solid: var(--color-emerald-500);
+  --theme-accent-soft: rgb(52 211 153 / 0.1);
+  --theme-accent-2: var(--color-cyan-400);
+  --theme-accent-2-soft: rgb(34 211 238 / 0.1);
+  --theme-on-accent: #04130d;
+
+  --theme-shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 32px -16px rgb(0 0 0 / 0.6);
+}
+
+/* Per-project identity colour, used as a subtle secondary accent.
+   Set with data-project="chora|astro|mirofish|fidus" on a wrapper, then use
+   `text-project`, `bg-project-soft`, `border-project`. Hues match the colours
+   each case study already uses. */
+[data-project="chora"]    { --project: var(--color-violet-600);  --project-soft: rgb(124 58 237 / 0.1); }
+[data-project="astro"]    { --project: var(--color-blue-600);    --project-soft: rgb(37 99 235 / 0.1); }
+[data-project="mirofish"] { --project: var(--color-emerald-600); --project-soft: rgb(5 150 105 / 0.1); }
+[data-project="fidus"]    { --project: var(--color-cyan-700);    --project-soft: rgb(8 145 178 / 0.1); }
+
+.dark[data-project="chora"],    .dark [data-project="chora"]    { --project: var(--color-violet-400);  --project-soft: rgb(167 139 250 / 0.12); }
+.dark[data-project="astro"],    .dark [data-project="astro"]    { --project: var(--color-blue-400);    --project-soft: rgb(96 165 250 / 0.12); }
+.dark[data-project="mirofish"], .dark [data-project="mirofish"] { --project: var(--color-emerald-400); --project-soft: rgb(52 211 153 / 0.12); }
+.dark[data-project="fidus"],    .dark [data-project="fidus"]    { --project: var(--color-cyan-400);    --project-soft: rgb(34 211 238 / 0.12); }
+
+/* ------------------------------------------------------------------ */
+/* Tailwind tokens                                                     */
+/* ------------------------------------------------------------------ */
+
+/* `inline` makes utilities read the variables directly, so they switch
+   with the theme. */
+@theme inline {
+  --color-canvas: var(--theme-canvas);
+  --color-surface: var(--theme-surface);
+  --color-surface-2: var(--theme-surface-2);
+  --color-fg: var(--theme-fg);
+  --color-fg-muted: var(--theme-fg-muted);
+  --color-fg-subtle: var(--theme-fg-subtle);
+  --color-line: var(--theme-line);
+  --color-line-strong: var(--theme-line-strong);
+
+  --color-accent: var(--theme-accent);
+  --color-accent-solid: var(--theme-accent-solid);
+  --color-accent-soft: var(--theme-accent-soft);
+  --color-accent-2: var(--theme-accent-2);
+  --color-accent-2-soft: var(--theme-accent-2-soft);
+  --color-on-accent: var(--theme-on-accent);
+
+  --color-project: var(--project, var(--theme-accent));
+  --color-project-soft: var(--project-soft, var(--theme-accent-soft));
+
+  --shadow-card: var(--theme-shadow-card);
+}
+
+@theme {
+  /* Typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Fluid display sizes for editorial headings */
+  --text-display-xl: clamp(3.25rem, 8vw, 7.5rem);
+  --text-display-xl--line-height: 0.95;
+  --text-display-xl--letter-spacing: -0.02em;
+  --text-display-lg: clamp(2.5rem, 5.5vw, 4.75rem);
+  --text-display-lg--line-height: 1;
+  --text-display-lg--letter-spacing: -0.015em;
+  --text-display-md: clamp(2rem, 3.6vw, 3.25rem);
+  --text-display-md--line-height: 1.05;
+  --text-display-md--letter-spacing: -0.01em;
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1rem;
+  --text-eyebrow--letter-spacing: 0.18em;
+
+  /* Layout */
+  --container-page: 76rem;   /* max-w-page: main content width */
+  --container-prose: 42rem;  /* max-w-prose: comfortable reading width */
+  --spacing-gutter: clamp(1.25rem, 4vw, 3rem);  /* px-gutter */
+  --spacing-section: clamp(5rem, 10vw, 8rem);   /* py-section */
+
+  /* Radii */
+  --radius-control: 9999px;  /* buttons, tags */
+  --radius-card: 1.25rem;
+  --radius-panel: 2rem;      /* large media frames */
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Centered page container with responsive side padding. */
+@utility container-page {
+  width: 100%;
+  max-width: var(--container-page);
+  margin-inline: auto;
+  padding-inline: var(--spacing-gutter);
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+
+@layer base {
+  ::selection {
+    background: var(--theme-accent-soft);
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--theme-accent);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* App shell follows the theme. Page content that still hardcodes black and
+   white is wrapped in its own dark container (see src/pages). */
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
 html {
-  background: #000;
+  background: var(--theme-canvas);
   scroll-behavior: smooth;
 }
 
 body {
-  background: #000;
-  color: white;
+  background: var(--theme-canvas);
+  color: var(--theme-fg);
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #root {
-  background: #000;
   min-height: 100vh;
 }

@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import Hero from "../components/fidus/Hero";
 import Problem from "../components/fidus/Problem";
 import Solution from "../components/fidus/Solution";
@@ -13,15 +11,9 @@ import Roadmap from "../components/fidus/Roadmap";
 import FooterCTA from "../components/fidus/FooterCTA";
 
 export default function Fidus() {
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "instant",
-    } as ScrollToOptions);
-  }, []);
-
+  // Stays dark in both themes until this page moves onto the design tokens.
   return (
-    <main className="bg-black text-white">
+    <div className="dark bg-black text-white">
       <Hero />
       <Problem />
       <Solution />
@@ -33,6 +25,6 @@ export default function Fidus() {
       <Impact />
       <Roadmap />
       <FooterCTA />
-    </main>
+    </div>
   );
 }

@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 import Hero from "../components/astro/Hero";
 import Problem from "../components/astro/Problem";
 import Solution from "../components/astro/Solution";
@@ -12,15 +10,9 @@ import Roadmap from "../components/astro/Roadmap";
 import FooterCTA from "../components/astro/FooterCTA";
 
 export default function AstroRescue() {
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "instant",
-    } as ScrollToOptions);
-  }, []);
-
+  // Stays dark in both themes until this page moves onto the design tokens.
   return (
-    <main className="bg-black text-white">
+    <div className="dark bg-black text-white">
       <Hero />
       <Problem />
       <Solution />
@@ -31,6 +23,6 @@ export default function AstroRescue() {
       <Results />
       <Roadmap />
       <FooterCTA />
-    </main>
+    </div>
   );
 }

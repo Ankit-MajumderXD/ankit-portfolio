@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Solution from "../components/chora/Solution";
 import Hero from "../components/chora/Hero";
 import Problem from "../components/chora/Problem";
@@ -11,15 +10,9 @@ import FooterCTA from "../components/chora/FooterCTA";
 import Challenges from "../components/chora/Challenges";
 
 export default function Chora() {
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "instant",
-    } as ScrollToOptions);
-  }, []);
-
+  // Stays dark in both themes until this page moves onto the design tokens.
   return (
-    <main className="bg-black text-white">
+    <div className="dark bg-black text-white">
       <Hero />
       <Problem />
       <Solution />
@@ -30,6 +23,6 @@ export default function Chora() {
       <Results />
       <Roadmap />
       <FooterCTA />
-    </main>
+    </div>
   );
 }
