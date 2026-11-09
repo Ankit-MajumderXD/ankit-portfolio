@@ -80,7 +80,7 @@ export default function Hero() {
 
             <img
               src={heroImg}
-              alt="Fidus Dashboard"
+              alt="Fidus logo"
               className="w-full object-cover"
             />
 
