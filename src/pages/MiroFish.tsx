@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-
+import CaseStudyLayout from "../components/case-study/CaseStudyLayout";
 import Hero from "../components/mirofish/Hero";
 import Problem from "../components/mirofish/Problem";
 import Solution from "../components/mirofish/Solution";
@@ -13,15 +12,8 @@ import FooterCTA from "../components/mirofish/FooterCTA";
 import CompanionModules from "../components/mirofish/CompanionModules";
 
 export default function MiroFish() {
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "instant",
-    } as ScrollToOptions);
-  }, []);
-
   return (
-    <main className="bg-black text-white">
+    <CaseStudyLayout projectId="miro-fish">
       <Hero />
       <Problem />
       <Solution />
@@ -33,6 +25,6 @@ export default function MiroFish() {
       <Results />
       <Roadmap />
       <FooterCTA />
-    </main>
+    </CaseStudyLayout>
   );
 }

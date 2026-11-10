@@ -1,67 +1,64 @@
+import CaseStudySection from "../case-study/CaseStudySection";
+import Reveal from "../ui/Reveal";
+
+const points = [
+  {
+    title: "AI-Powered Recommendations",
+    description:
+      "Instead of showing every available doctor, Fidus intelligently recommends the most suitable specialist based on symptoms, location and medical needs.",
+  },
+  {
+    title: "Healthcare Coordination",
+    description:
+      "Patients receive guidance before, during and after consultations, creating a continuous healthcare journey rather than a single appointment.",
+  },
+  {
+    title: "Privacy-First Analytics",
+    description:
+      "Healthcare insights are generated from anonymized data, helping improve public health without exposing personal information.",
+  },
+  {
+    title: "Multi-Stakeholder Platform",
+    description:
+      "Patients, doctors, hospitals, researchers and government agencies all benefit from one connected healthcare ecosystem.",
+  },
+];
+
 export default function Differentiation() {
-  const points = [
-    {
-      title: "AI-Powered Recommendations",
-      description:
-        "Instead of showing every available doctor, Fidus intelligently recommends the most suitable specialist based on symptoms, location and medical needs.",
-    },
-    {
-      title: "Healthcare Coordination",
-      description:
-        "Patients receive guidance before, during and after consultations, creating a continuous healthcare journey rather than a single appointment.",
-    },
-    {
-      title: "Privacy-First Analytics",
-      description:
-        "Healthcare insights are generated from anonymized data, helping improve public health without exposing personal information.",
-    },
-    {
-      title: "Multi-Stakeholder Platform",
-      description:
-        "Patients, doctors, hospitals, researchers and government agencies all benefit from one connected healthcare ecosystem.",
-    },
-  ];
-
   return (
-    <section className="mx-auto max-w-7xl px-8 py-32 md:px-20">
-
-      <p className="text-sm uppercase tracking-[0.35em] text-cyan-400">
-        Why Fidus?
-      </p>
-
-      <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
-        Designed to go
-        <br />
-        beyond traditional
-        <br />
-        healthcare apps.
-      </h2>
-
-      <p className="mt-6 max-w-3xl text-base sm:text-lg leading-7 sm:leading-8 text-gray-400 px-2">
-        Fidus isn't simply another appointment platform. It combines
-        Artificial Intelligence, healthcare coordination and data-driven
-        insights into one connected experience.
-      </p>
-
-      <div className="mt-14 sm:mt-20 grid gap-5 sm:gap-8 md:grid-cols-2">
-
-        {points.map((point) => (
-          <div
-            key={point.title}
-            className="rounded-3xl border border-white/10 bg-white/5 p-5 sm:p-6 md:p-8 backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-cyan-400/30"
-          >
-            <h3 className="text-xl sm:text-2xl font-bold">
-              {point.title}
-            </h3>
-
-            <p className="mt-4 text-sm sm:text-base leading-7 sm:leading-8 text-gray-400">
-              {point.description}
-            </p>
-          </div>
+    <CaseStudySection
+      index="07"
+      eyebrow="Why Fidus?"
+      layout="stacked"
+      title={
+        <>
+          Designed to go beyond{" "}
+          <em className="text-fg-muted">traditional healthcare apps.</em>
+        </>
+      }
+      intro={
+        <p>
+          Fidus isn't simply another appointment platform. It combines
+          Artificial Intelligence, healthcare coordination and data-driven
+          insights into one connected experience.
+        </p>
+      }
+    >
+      <ol className="grid gap-x-16 gap-y-12 md:grid-cols-2">
+        {points.map((point, index) => (
+          <li key={point.title}>
+            <Reveal delay={(index % 2) * 0.06} className="grid grid-cols-[auto_1fr] gap-x-6">
+              <span aria-hidden="true" className="font-display text-[3.25rem] leading-[0.85] text-project">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <h3 className="text-xl font-semibold leading-snug text-fg">{point.title}</h3>
+                <p className="mt-3 leading-relaxed text-fg-muted">{point.description}</p>
+              </div>
+            </Reveal>
+          </li>
         ))}
-
-      </div>
-
-    </section>
+      </ol>
+    </CaseStudySection>
   );
 }
