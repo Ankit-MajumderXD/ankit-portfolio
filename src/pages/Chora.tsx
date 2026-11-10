@@ -1,3 +1,4 @@
+import CaseStudyLayout from "../components/case-study/CaseStudyLayout";
 import Solution from "../components/chora/Solution";
 import Hero from "../components/chora/Hero";
 import Problem from "../components/chora/Problem";
@@ -10,9 +11,8 @@ import FooterCTA from "../components/chora/FooterCTA";
 import Challenges from "../components/chora/Challenges";
 
 export default function Chora() {
-  // Stays dark in both themes until this page moves onto the design tokens.
   return (
-    <div className="dark bg-black text-white">
+    <CaseStudyLayout projectId="chora">
       <Hero />
       <Problem />
       <Solution />
@@ -23,6 +23,6 @@ export default function Chora() {
       <Results />
       <Roadmap />
       <FooterCTA />
-    </div>
+    </CaseStudyLayout>
   );
 }

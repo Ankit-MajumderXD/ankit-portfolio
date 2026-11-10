@@ -1,48 +1,43 @@
+import CaseStudySection from "../case-study/CaseStudySection";
+import Reveal from "../ui/Reveal";
+
+const audiences = [
+  {
+    title: "Farmers",
+    body: "Farmers often rely on fragmented information for weather, crop diseases, market prices and government schemes. This leads to delayed decisions, reduced productivity and financial uncertainty.",
+  },
+  {
+    title: "Students",
+    body: "Students, especially in rural regions, face difficulty finding trustworthy guidance for careers, scholarships, competitive exams and educational resources in one accessible platform.",
+  },
+];
+
 export default function Problem() {
   return (
-    <section className="mx-auto max-w-7xl px-8 py-32 md:px-20">
-
-      <p className="text-sm uppercase tracking-[0.35em] text-emerald-400">
-        The Problem
-      </p>
-
-      <h2 className="mt-6 max-w-5xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
-        Millions of farmers and
-        <br />
-        students struggle to access
-        <br />
-        reliable information.
-      </h2>
-
-      <div className="mt-12 md:mt-16 grid gap-10 md:gap-16 grid-cols-1 md:grid-cols-2">
-
-        <div>
-          <h3 className="mb-4 sm:mb-6 text-xl sm:text-2xl font-bold">
-            Farmers
-          </h3>
-
-          <p className="text-base sm:text-lg leading-7 sm:leading-8 text-gray-400">
-            Farmers often rely on fragmented information for weather,
-            crop diseases, market prices and government schemes. This
-            leads to delayed decisions, reduced productivity and financial
-            uncertainty.
-          </p>
-        </div>
-
-        <div>
-          <h3 className="mb-4 sm:mb-6 text-xl sm:text-2xl font-bold">
-            Students
-          </h3>
-
-          <p className="text-base sm:text-lg leading-7 sm:leading-8 text-gray-400">
-            Students, especially in rural regions, face difficulty finding
-            trustworthy guidance for careers, scholarships, competitive
-            exams and educational resources in one accessible platform.
-          </p>
-        </div>
-
+    <CaseStudySection
+      index="01"
+      eyebrow="The Problem"
+      layout="stacked"
+      title={
+        <>
+          Millions of farmers and students{" "}
+          <em className="text-fg-muted">struggle to access reliable information.</em>
+        </>
+      }
+    >
+      {/* The two communities, set as facing pages. */}
+      <div className="grid md:grid-cols-2">
+        {audiences.map((audience, index) => (
+          <Reveal
+            key={audience.title}
+            delay={index * 0.06}
+            className={`border-t border-line-strong py-8 md:py-10 ${index === 0 ? "md:pr-12" : "md:border-l md:border-l-line md:pl-12"}`}
+          >
+            <h3 className="font-display text-[clamp(2.5rem,5vw,4rem)] leading-none text-project">{audience.title}</h3>
+            <p className="mt-6 max-w-[32rem] text-lg leading-relaxed text-fg-muted">{audience.body}</p>
+          </Reveal>
+        ))}
       </div>
-
-    </section>
+    </CaseStudySection>
   );
 }

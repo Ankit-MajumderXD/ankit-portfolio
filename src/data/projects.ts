@@ -1,7 +1,7 @@
-import astrotrackImg from "../assets/projects/astrotrack.png";
-import mirofishImg from "../assets/projects/mirofish.png";
-import choraImg from "../assets/projects/chõra.png";
-import fidusImg from "../assets/projects/fidus.png";
+import astrotrackImg from "../assets/projects/astrotrack.webp";
+import mirofishImg from "../assets/projects/mirofish.webp";
+import choraImg from "../assets/projects/chora.webp";
+import fidusImg from "../assets/projects/fidus.webp";
 
 export const projects = [
   {

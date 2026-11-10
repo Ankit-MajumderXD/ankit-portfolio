@@ -1,68 +1,64 @@
+import CaseStudySection from "../case-study/CaseStudySection";
+import Reveal from "../ui/Reveal";
+
+const pillars = [
+  {
+    title: "AI Healthcare Assistant",
+    description:
+      "An intelligent assistant that understands patient needs and guides them toward the right healthcare services.",
+  },
+  {
+    title: "Smart Doctor Discovery",
+    description:
+      "Recommends verified nearby specialists based on medical requirements, location and availability.",
+  },
+  {
+    title: "Teleconsultation",
+    description:
+      "Book appointments, attend online consultations and manage follow-up care through a unified experience.",
+  },
+  {
+    title: "Health Intelligence",
+    description:
+      "Transforms anonymized healthcare trends into valuable insights that support better planning and public health awareness.",
+  },
+];
+
 export default function Solution() {
-  const pillars = [
-    {
-      title: "AI Healthcare Assistant",
-      description:
-        "An intelligent assistant that understands patient needs and guides them toward the right healthcare services.",
-    },
-    {
-      title: "Smart Doctor Discovery",
-      description:
-        "Recommends verified nearby specialists based on medical requirements, location and availability.",
-    },
-    {
-      title: "Teleconsultation",
-      description:
-        "Book appointments, attend online consultations and manage follow-up care through a unified experience.",
-    },
-    {
-      title: "Health Intelligence",
-      description:
-        "Transforms anonymized healthcare trends into valuable insights that support better planning and public health awareness.",
-    },
-  ];
-
   return (
-    <section className="mx-auto max-w-7xl px-8 py-32 md:px-20">
-
-      <p className="text-sm uppercase tracking-[0.35em] text-cyan-400">
-        The Solution
-      </p>
-
-      <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
-        One ecosystem.
-        <br />
-        Every healthcare
-        <br />
-        interaction.
-      </h2>
-
-      <p className="mt-6 max-w-3xl text-base sm:text-lg leading-7 sm:leading-8 text-gray-400">
-        Fidus combines Artificial Intelligence, healthcare expertise
-        and intelligent recommendations into a unified platform that
-        connects patients, doctors and healthcare providers through
-        one seamless experience.
-      </p>
-
-      <div className="mt-12 sm:mt-20 grid gap-6 md:grid-cols-2">
-
-        {pillars.map((pillar) => (
-          <div
+    <CaseStudySection
+      index="02"
+      eyebrow="The Solution"
+      layout="stacked"
+      title={
+        <>
+          One ecosystem. <em className="text-project">Every healthcare interaction.</em>
+        </>
+      }
+      intro={
+        <p>
+          Fidus combines Artificial Intelligence, healthcare expertise and
+          intelligent recommendations into a unified platform that connects
+          patients, doctors and healthcare providers through one seamless
+          experience.
+        </p>
+      }
+    >
+      {/* Four pillars standing side by side, divided by vertical rules. */}
+      <ul className="grid sm:grid-cols-2 xl:grid-cols-4">
+        {pillars.map((pillar, index) => (
+          <li
             key={pillar.title}
-            className="rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8 backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-cyan-400/30"
+            className={`border-t border-line-strong py-8 sm:pr-8 xl:border-t-0 xl:border-l xl:border-l-line xl:px-8 xl:py-2 ${index === 0 ? "xl:border-l-0 xl:pl-0" : ""}`}
           >
-            <h3 className="text-xl sm:text-2xl font-bold">
-              {pillar.title}
-            </h3>
-
-            <p className="mt-4 text-sm sm:text-base leading-7 sm:leading-8 text-gray-400">
-              {pillar.description}
-            </p>
-          </div>
+            <Reveal delay={Math.min(index, 3) * 0.05}>
+              <p className="font-mono text-eyebrow uppercase text-fg-subtle">Pillar {String(index + 1).padStart(2, "0")}</p>
+              <h3 className="mt-4 font-display text-[1.875rem] leading-tight text-fg">{pillar.title}</h3>
+              <p className="mt-3 leading-relaxed text-fg-muted">{pillar.description}</p>
+            </Reveal>
+          </li>
         ))}
-
-      </div>
-
-    </section>
+      </ul>
+    </CaseStudySection>
   );
 }

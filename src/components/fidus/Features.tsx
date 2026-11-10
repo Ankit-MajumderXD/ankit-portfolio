@@ -1,67 +1,72 @@
+import CaseStudySection from "../case-study/CaseStudySection";
+import Reveal from "../ui/Reveal";
+import { FIDUS_ICONS } from "./icons";
+
+const features = [
+  {
+    icon: FIDUS_ICONS.hospital,
+    title: "Smart Doctor Discovery",
+    description:
+      "Find verified nearby specialists using AI recommendations based on symptoms, specialty, location and availability.",
+  },
+  {
+    icon: FIDUS_ICONS.chat,
+    title: "AI Health Assistant",
+    description:
+      "Receive intelligent healthcare guidance before visiting a doctor, helping users make informed medical decisions.",
+  },
+  {
+    icon: FIDUS_ICONS.calendar,
+    title: "Teleconsultation & Appointments",
+    description:
+      "Book appointments, attend virtual consultations and manage follow-up visits from one unified platform.",
+  },
+  {
+    icon: FIDUS_ICONS.chart,
+    title: "Population Health Insights",
+    description:
+      "Privacy-preserving analytics help identify healthcare trends, disease patterns and regional medical demands.",
+  },
+];
+
 export default function Features() {
-  const features = [
-    {
-      title: "🏥 Smart Doctor Discovery",
-      description:
-        "Find verified nearby specialists using AI recommendations based on symptoms, specialty, location and availability.",
-    },
-    {
-      title: "💬 AI Health Assistant",
-      description:
-        "Receive intelligent healthcare guidance before visiting a doctor, helping users make informed medical decisions.",
-    },
-    {
-      title: "📅 Teleconsultation & Appointments",
-      description:
-        "Book appointments, attend virtual consultations and manage follow-up visits from one unified platform.",
-    },
-    {
-      title: "📊 Population Health Insights",
-      description:
-        "Privacy-preserving analytics help identify healthcare trends, disease patterns and regional medical demands.",
-    },
-  ];
-
   return (
-    <section className="mx-auto max-w-7xl px-8 py-32 md:px-20">
-
-      <p className="text-sm uppercase tracking-[0.35em] text-cyan-400">
-        Core Capabilities
-      </p>
-
-      <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
-        More than an
-        <br />
-        appointment
-        <br />
-        booking app.
-      </h2>
-
-      <p className="mt-6 max-w-3xl text-base sm:text-lg leading-7 sm:leading-8 text-gray-400 px-2">
-        Fidus integrates Artificial Intelligence with modern healthcare
-        workflows to provide intelligent recommendations, seamless
-        consultations and data-driven healthcare insights.
-      </p>
-
-      <div className="mt-14 sm:mt-20 grid gap-5 sm:gap-8 md:grid-cols-2">
-
-        {features.map((feature) => (
-          <div
-            key={feature.title}
-            className="rounded-3xl border border-white/10 bg-white/5 p-5 sm:p-6 md:p-8 backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-cyan-400/30"
-          >
-            <h3 className="text-xl sm:text-2xl font-bold">
-              {feature.title}
-            </h3>
-
-            <p className="mt-4 text-sm sm:text-base leading-7 sm:leading-8 text-gray-400">
-              {feature.description}
-            </p>
-          </div>
-        ))}
-
-      </div>
-
-    </section>
+    <CaseStudySection
+      index="03"
+      eyebrow="Core Capabilities"
+      title={
+        <>
+          More than an appointment{" "}
+          <em className="block text-fg-muted">booking app.</em>
+        </>
+      }
+      intro={
+        <p>
+          Fidus integrates Artificial Intelligence with modern healthcare
+          workflows to provide intelligent recommendations, seamless
+          consultations and data-driven healthcare insights.
+        </p>
+      }
+    >
+      {/* Capability → what it does, as a ruled list. */}
+      <dl className="border-b border-line">
+        {features.map((feature, index) => {
+          const Icon = feature.icon;
+          return (
+            <Reveal key={feature.title} delay={Math.min(index, 2) * 0.05}>
+              <div className="grid gap-3 border-t border-line py-7 md:grid-cols-12 md:gap-8">
+                <dt className="flex items-center gap-4 md:col-span-5">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-card border border-line-strong text-project">
+                    <Icon aria-hidden="true" className="h-5 w-5" strokeWidth={1.75} />
+                  </span>
+                  <span className="font-display text-[1.625rem] leading-tight text-fg">{feature.title}</span>
+                </dt>
+                <dd className="leading-relaxed text-fg-muted md:col-span-7 md:self-center md:text-lg">{feature.description}</dd>
+              </div>
+            </Reveal>
+          );
+        })}
+      </dl>
+    </CaseStudySection>
   );
 }

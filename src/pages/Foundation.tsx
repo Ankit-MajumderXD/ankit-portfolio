@@ -86,7 +86,7 @@ export default function Foundation() {
         <Block title="Accents">
           <div className="flex flex-wrap items-center gap-3">
             <span className="rounded-control bg-accent-solid px-5 py-2.5 text-sm font-semibold text-on-accent">
-              Primary · emerald
+              Primary · Acid Lime
             </span>
             <span className="rounded-control bg-accent-soft px-4 py-2 text-sm text-accent">
               accent-soft

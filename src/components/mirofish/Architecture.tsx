@@ -1,82 +1,94 @@
+import CaseStudySection from "../case-study/CaseStudySection";
+import Reveal from "../ui/Reveal";
+import { MODULE_ICONS } from "./icons";
+
+const modules = [
+  {
+    icon: MODULE_ICONS.crop,
+    title: "Crop Advisory",
+    description:
+      "AI-powered recommendations for crops, fertilizers, irrigation and disease management.",
+  },
+  {
+    icon: MODULE_ICONS.weather,
+    title: "Weather Intelligence",
+    description:
+      "Real-time forecasts, rainfall predictions and weather alerts for better planning.",
+  },
+  {
+    icon: MODULE_ICONS.finance,
+    title: "Financial Assistance",
+    description:
+      "Access to government schemes, subsidies, MSP information and financial guidance.",
+  },
+  {
+    icon: MODULE_ICONS.education,
+    title: "Education & Careers",
+    description:
+      "Career guidance, scholarship recommendations and learning resources for students.",
+  },
+];
+
+// Desktop placement around the hub: two modules on each side.
+const PLACEMENT = [
+  "lg:col-start-1 lg:row-start-1",
+  "lg:col-start-3 lg:row-start-1",
+  "lg:col-start-1 lg:row-start-2",
+  "lg:col-start-3 lg:row-start-2",
+];
+
 export default function Architecture() {
-  const modules = [
-    {
-      title: "🌾 Crop Advisory",
-      description:
-        "AI-powered recommendations for crops, fertilizers, irrigation and disease management.",
-    },
-    {
-      title: "🌦 Weather Intelligence",
-      description:
-        "Real-time forecasts, rainfall predictions and weather alerts for better planning.",
-    },
-    {
-      title: "💰 Financial Assistance",
-      description:
-        "Access to government schemes, subsidies, MSP information and financial guidance.",
-    },
-    {
-      title: "🎓 Education & Careers",
-      description:
-        "Career guidance, scholarship recommendations and learning resources for students.",
-    },
-  ];
-
   return (
-    <section
+    <CaseStudySection
       id="architecture"
-      className="mx-auto max-w-7xl px-8 py-32 md:px-20"
+      index="04"
+      eyebrow="Platform Architecture"
+      title={
+        <>
+          One AI platform.{" "}
+          <em className="block text-fg-muted">Multiple intelligent services.</em>
+        </>
+      }
+      intro={
+        <p>
+          Miro Fish brings together multiple AI-powered modules under a
+          unified assistant, enabling users to access agriculture, education
+          and financial insights from a single interface.
+        </p>
+      }
     >
-      <p className="text-sm uppercase tracking-[0.35em] text-emerald-400">
-        Platform Architecture
-      </p>
+      {/* Hub-and-spoke diagram: one decision engine serving four modules. */}
+      <div className="relative grid gap-6 sm:grid-cols-2 lg:grid-cols-[1fr_minmax(15rem,19rem)_1fr] lg:grid-rows-2 lg:gap-x-12 lg:gap-y-8">
+        <Reveal className="relative sm:col-span-2 lg:col-span-1 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-center">
+          {/* Plain surface (not the accent tint) keeps the accent text above 4.5:1. */}
+          <div className="mx-auto mb-8 flex max-w-[19rem] flex-col items-center rounded-panel border-2 border-project/60 bg-surface px-6 py-8 text-center shadow-card lg:mb-0 lg:py-12">
+            <p className="font-mono text-eyebrow uppercase text-project">Hub</p>
+            <h3 className="mt-3 font-display text-[2.25rem] leading-none text-project">MIRO FISH AI</h3>
+            <p className="mt-3 text-fg-muted">Intelligent Decision Engine</p>
+          </div>
+        </Reveal>
 
-      <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
-        One AI platform.
-        <br />
-        Multiple intelligent
-        <br />
-        services.
-      </h2>
-
-      <p className="mt-6 max-w-3xl text-base sm:text-lg leading-7 sm:leading-8 text-gray-400">
-        Miro Fish brings together multiple AI-powered modules under a
-        unified assistant, enabling users to access agriculture,
-        education and financial insights from a single interface.
-      </p>
-
-      <div className="mt-20 flex flex-col items-center">
-
-        <div className="mb-12 rounded-3xl border border-emerald-400/30 bg-emerald-500/10 px-6 sm:px-10 md:px-12 py-6 sm:py-8 text-center backdrop-blur-xl">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-emerald-400">
-            MIRO FISH AI
-          </h3>
-
-          <p className="mt-3 text-gray-300">
-            Intelligent Decision Engine
-          </p>
-        </div>
-
-        <div className="grid w-full gap-6 md:gap-8 md:grid-cols-2">
-
-          {modules.map((module) => (
-            <div
-              key={module.title}
-              className="rounded-3xl border border-white/10 bg-white/5 p-5 sm:p-8 backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-emerald-400/30"
-            >
-              <h3 className="text-xl sm:text-2xl font-bold">
-                {module.title}
-              </h3>
-
-              <p className="mt-4 text-base sm:text-lg leading-7 sm:leading-8 text-gray-400">
-                {module.description}
-              </p>
-            </div>
-          ))}
-
-        </div>
-
+        {modules.map((module, index) => {
+          const Icon = module.icon;
+          const leftSide = index % 2 === 0;
+          return (
+            <Reveal key={module.title} delay={index * 0.05} className={`relative ${PLACEMENT[index]}`}>
+              {/* Spoke to the hub (lg) */}
+              <span
+                aria-hidden="true"
+                className={`absolute top-1/2 hidden h-px w-12 bg-project/50 lg:block ${leftSide ? "-right-12" : "-left-12"}`}
+              />
+              <div className="h-full rounded-card border border-line bg-surface p-6">
+                <div className="flex items-center gap-3">
+                  <Icon aria-hidden="true" className="h-5 w-5 text-project" strokeWidth={1.75} />
+                  <h3 className="text-lg font-semibold text-fg">{module.title}</h3>
+                </div>
+                <p className="mt-3 leading-relaxed text-fg-muted">{module.description}</p>
+              </div>
+            </Reveal>
+          );
+        })}
       </div>
-    </section>
+    </CaseStudySection>
   );
 }

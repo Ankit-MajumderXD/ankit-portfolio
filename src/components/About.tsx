@@ -30,7 +30,7 @@ export default function About() {
         <div className="mt-14 grid gap-12 md:mt-20 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-7">
             <p className="text-xl leading-relaxed text-fg md:text-2xl md:leading-relaxed">
-              I'm Ankit Majumder, a B.E. Computer Science &amp; Engineering
+              I'm Ankit Majumder, a B.Tech Computer Science &amp; Engineering
               (AI&nbsp;&amp;&nbsp;ML) student based in Bangalore, India. I enjoy
               building <span className="text-accent">AI-powered products</span>{" "}
               that solve meaningful real-world problems through technology,

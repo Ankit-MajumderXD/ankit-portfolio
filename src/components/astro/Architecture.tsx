@@ -1,55 +1,75 @@
+import CaseStudySection from "../case-study/CaseStudySection";
+import Reveal from "../ui/Reveal";
+
+const pipeline = [
+  "Satellite Images",
+  "Image Preprocessing",
+  "Cloud Removal AI",
+  "Terrain Analysis",
+  "Risk Detection",
+  "Safe Landing Prediction",
+  "Mission Dashboard",
+];
+
 export default function Architecture() {
-  const pipeline = [
-    "Satellite Images",
-    "Image Preprocessing",
-    "Cloud Removal AI",
-    "Terrain Analysis",
-    "Risk Detection",
-    "Safe Landing Prediction",
-    "Mission Dashboard",
-  ];
+  const last = pipeline.length - 1;
 
   return (
-    <section
+    <CaseStudySection
       id="architecture"
-      className="mx-auto max-w-7xl px-8 py-32 md:px-20"
+      index="03"
+      eyebrow="Architecture"
+      title={
+        <>
+          End-to-end AI <em className="block text-fg-muted">rescue pipeline</em>
+        </>
+      }
+      intro={
+        <p>
+          Astro Rescue AI transforms raw satellite imagery into actionable
+          rescue intelligence using multiple AI models working together in a
+          single pipeline.
+        </p>
+      }
     >
-      <p className="text-sm uppercase tracking-[0.35em] text-blue-400">
-        Architecture
-      </p>
+      {/* Trajectory diagram: one track from source imagery to the dashboard. */}
+      <div className="rounded-panel border border-line bg-surface p-6 sm:p-8 md:p-10">
+        <p className="font-mono text-eyebrow uppercase text-fg-subtle">
+          Raw satellite imagery → actionable rescue intelligence
+        </p>
 
-      <h2 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
-        End-to-end AI
-        <br />
-        rescue pipeline
-      </h2>
-
-      <p className="mt-6 max-w-3xl text-base sm:text-lg leading-7 sm:leading-8 text-gray-400 px-2">
-        Astro Rescue AI transforms raw satellite imagery into actionable
-        rescue intelligence using multiple AI models working together in a
-        single pipeline.
-      </p>
-
-      <div className="mt-16 sm:mt-20 flex flex-col items-center">
-
-        {pipeline.map((step, index) => (
-          <div
-            key={step}
-            className="flex w-full max-w-3xl flex-col items-center"
-          >
-            <div className="w-full rounded-3xl border border-white/10 bg-white/5 p-5 sm:p-6 md:p-8 text-center backdrop-blur-xl transition duration-300 hover:border-blue-400/30 hover:bg-white/10">
-              <h3 className="text-xl sm:text-2xl font-bold">
-                {step}
-              </h3>
-            </div>
-
-            {index !== pipeline.length - 1 && (
-              <div className="my-6 h-12 w-0.5 bg-linear-to-b from-blue-400 to-transparent" />
-            )}
-          </div>
-        ))}
-
+        <ol className="relative mt-10 grid gap-8 lg:grid-cols-7 lg:gap-4">
+          {/* Vertical track (below lg) */}
+          <span aria-hidden="true" className="absolute bottom-3 left-[7px] top-3 w-px bg-line-strong lg:hidden" />
+          {pipeline.map((stage, index) => {
+            const isEnd = index === 0 || index === last;
+            return (
+              <li key={stage} className="relative pl-10 lg:pl-0">
+                {/* Horizontal track segment to the next stage (lg) */}
+                {index < last && (
+                  <span aria-hidden="true" className="absolute -right-4 left-6 top-[7px] hidden h-px bg-line-strong lg:block" />
+                )}
+                <Reveal delay={Math.min(index, 6) * 0.04}>
+                  <span
+                    aria-hidden="true"
+                    className={`absolute left-0 top-0 h-[15px] w-[15px] rounded-full border-2 border-project lg:relative lg:block ${
+                      isEnd ? "bg-project" : "bg-surface"
+                    }`}
+                  />
+                  <p className="font-mono text-eyebrow uppercase text-fg-subtle lg:mt-5">
+                    {String(index + 1).padStart(2, "0")}
+                    {index === 0 && <span className="text-project"> · Input</span>}
+                    {index === last && <span className="text-project"> · Output</span>}
+                  </p>
+                  <h3 className={`mt-2 font-display text-[1.5rem] leading-tight lg:text-[1.375rem] ${isEnd ? "text-project" : "text-fg"}`}>
+                    {stage}
+                  </h3>
+                </Reveal>
+              </li>
+            );
+          })}
+        </ol>
       </div>
-    </section>
+    </CaseStudySection>
   );
 }

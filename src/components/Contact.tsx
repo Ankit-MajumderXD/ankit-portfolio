@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Check, Copy } from "lucide-react";
 import { EMAIL, SOCIAL_LINKS } from "../data/contact";
+import BackgroundPaths from "./ui/background-paths";
 import Eyebrow from "./ui/Eyebrow";
 import Reveal from "./ui/Reveal";
 
@@ -24,7 +25,9 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" aria-labelledby="contact-title" className="border-t border-line">
+    <section id="contact" aria-labelledby="contact-title" className="relative isolate overflow-hidden border-t border-line">
+      {/* Mirrors the hero's paths to close the page; kept to the right, away from the email and links. */}
+      <BackgroundPaths flip className="[mask-composite:intersect] [mask-image:linear-gradient(to_bottom,transparent_5%,black_55%,transparent),linear-gradient(to_right,transparent_30%,black_85%)]" />
       <div className="container-page py-section">
         <Reveal>
           <Eyebrow>Contact</Eyebrow>

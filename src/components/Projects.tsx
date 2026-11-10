@@ -2,21 +2,18 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
+import { PROJECT_ACCENT } from "../data/caseStudies";
 import Eyebrow from "./ui/Eyebrow";
 
 type Project = (typeof projects)[number];
 
-// Presentation-only details per project id. Accent keys match the
-// data-project tokens in index.css; dimensions are the source image sizes;
-// focus picks the crop for the 4:3 frame.
-const PRESENTATION: Record<
-  string,
-  { accent: string; width: number; height: number; focus: string }
-> = {
-  chora: { accent: "chora", width: 816, height: 1456, focus: "50% 45%" },
-  "astro-rescue-ai": { accent: "astro", width: 900, height: 1600, focus: "50% 55%" },
-  "miro-fish": { accent: "mirofish", width: 1200, height: 1350, focus: "50% 35%" },
-  fidus: { accent: "fidus", width: 700, height: 933, focus: "50% 38%" },
+// Presentation-only details per project id: dimensions are the source image
+// sizes; focus picks the crop for the 4:3 frame.
+const PRESENTATION: Record<string, { width: number; height: number; focus: string }> = {
+  chora: { width: 816, height: 1456, focus: "50% 45%" },
+  "astro-rescue-ai": { width: 900, height: 1600, focus: "50% 55%" },
+  "miro-fish": { width: 1200, height: 1350, focus: "50% 35%" },
+  fidus: { width: 700, height: 933, focus: "50% 38%" },
 };
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -29,7 +26,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
   return (
     <motion.article
-      data-project={look?.accent}
+      data-project={PROJECT_ACCENT[project.id]}
       aria-labelledby={titleId}
       // Reduced motion: fade only, from the final position.
       initial={{ opacity: 0, y: reduceMotion ? 0 : 24 }}

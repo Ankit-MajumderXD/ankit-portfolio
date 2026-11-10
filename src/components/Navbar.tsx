@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import profile from "../assets/profile.png";
+// Small dedicated avatar (160px wide) instead of the full portrait.
+// `?no-inline`: keep it a separate (non-blocking) file instead of base64 in the JS bundle.
+import profile from "../assets/profile-avatar.webp?no-inline";
 import ThemeToggle from "./ui/ThemeToggle";
 
 const NAV_LINKS = [

@@ -10,10 +10,13 @@ import Fidus from "./pages/Fidus";
 import AstroRescue from "./pages/AstroRescue";
 import MiroFish from "./pages/MiroFish";
 
-// Dev-only design foundation preview. The DEV check is a build-time
-// constant, so production builds drop this import entirely.
+// Dev-only previews (design foundation, shared case-study components). The
+// DEV check is a build-time constant, so production builds drop them.
 const Foundation = import.meta.env.DEV
   ? lazy(() => import("./pages/Foundation"))
+  : null;
+const CaseStudyKit = import.meta.env.DEV
+  ? lazy(() => import("./pages/CaseStudyKit"))
   : null;
 
 function App() {
@@ -40,6 +43,16 @@ function App() {
               element={
                 <Suspense fallback={null}>
                   <Foundation />
+                </Suspense>
+              }
+            />
+          )}
+          {CaseStudyKit && (
+            <Route
+              path="/__case-study"
+              element={
+                <Suspense fallback={null}>
+                  <CaseStudyKit />
                 </Suspense>
               }
             />

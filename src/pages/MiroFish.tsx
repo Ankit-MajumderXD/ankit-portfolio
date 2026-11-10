@@ -1,3 +1,4 @@
+import CaseStudyLayout from "../components/case-study/CaseStudyLayout";
 import Hero from "../components/mirofish/Hero";
 import Problem from "../components/mirofish/Problem";
 import Solution from "../components/mirofish/Solution";
@@ -11,9 +12,8 @@ import FooterCTA from "../components/mirofish/FooterCTA";
 import CompanionModules from "../components/mirofish/CompanionModules";
 
 export default function MiroFish() {
-  // Stays dark in both themes until this page moves onto the design tokens.
   return (
-    <div className="dark bg-black text-white">
+    <CaseStudyLayout projectId="miro-fish">
       <Hero />
       <Problem />
       <Solution />
@@ -25,6 +25,6 @@ export default function MiroFish() {
       <Results />
       <Roadmap />
       <FooterCTA />
-    </div>
+    </CaseStudyLayout>
   );
 }

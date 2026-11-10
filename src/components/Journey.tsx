@@ -47,7 +47,7 @@ const TIMELINE: Milestone[] = [
   {
     year: "2025",
     kind: "education",
-    title: "Started B.E. Computer Science & Engineering (AI & ML)",
+    title: "Started B.Tech Computer Science & Engineering (AI & ML)",
     description:
       "Began my journey in Computer Science with a focus on Artificial Intelligence and Machine Learning.",
   },

@@ -18,13 +18,15 @@
   --theme-line: rgb(22 25 27 / 0.1);
   --theme-line-strong: rgb(22 25 27 / 0.2);
 
-  /* Accents are one step darker in light mode to keep text contrast. */
-  --theme-accent: var(--color-emerald-700);
-  --theme-accent-solid: var(--color-emerald-600);
-  --theme-accent-soft: rgb(5 150 105 / 0.1);
+  /* Acid Lime is too light for text on the off-white canvas (1.2:1), so
+     light mode uses a deep lime for text, icons and focus rings (≥5.4:1,
+     including on the soft lime pill). Fills stay Acid Lime with ink text. */
+  --theme-accent: var(--color-acid-lime-deep);
+  --theme-accent-solid: var(--color-acid-lime);
+  --theme-accent-soft: rgb(198 241 53 / 0.14);
   --theme-accent-2: var(--color-cyan-700);
   --theme-accent-2-soft: rgb(8 145 178 / 0.1);
-  --theme-on-accent: #ffffff;
+  --theme-on-accent: #16191b;   /* ink on Acid Lime fills: 13.5:1 */
 
   --theme-shadow-card: 0 1px 2px rgb(22 25 27 / 0.04), 0 8px 24px -12px rgb(22 25 27 / 0.12);
 }
@@ -39,12 +41,13 @@
   --theme-line: rgb(236 235 230 / 0.08);
   --theme-line-strong: rgb(236 235 230 / 0.16);
 
-  --theme-accent: var(--color-emerald-400);
-  --theme-accent-solid: var(--color-emerald-500);
-  --theme-accent-soft: rgb(52 211 153 / 0.1);
+  /* Acid Lime reads at 12.5–14.6:1 on the charcoal surfaces. */
+  --theme-accent: var(--color-acid-lime);
+  --theme-accent-solid: var(--color-acid-lime);
+  --theme-accent-soft: rgb(198 241 53 / 0.12);
   --theme-accent-2: var(--color-cyan-400);
   --theme-accent-2-soft: rgb(34 211 238 / 0.1);
-  --theme-on-accent: #04130d;
+  --theme-on-accent: #0e1011;
 
   --theme-shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 12px 32px -16px rgb(0 0 0 / 0.6);
 }
@@ -55,7 +58,7 @@
    each case study already uses. */
 [data-project="chora"]    { --project: var(--color-violet-600);  --project-soft: rgb(124 58 237 / 0.1); }
 [data-project="astro"]    { --project: var(--color-blue-600);    --project-soft: rgb(37 99 235 / 0.1); }
-[data-project="mirofish"] { --project: var(--color-emerald-600); --project-soft: rgb(5 150 105 / 0.1); }
+[data-project="mirofish"] { --project: var(--color-emerald-700); --project-soft: rgb(5 150 105 / 0.1); } /* 700: 600 fails text contrast on the light canvas */
 [data-project="fidus"]    { --project: var(--color-cyan-700);    --project-soft: rgb(8 145 178 / 0.1); }
 
 .dark[data-project="chora"],    .dark [data-project="chora"]    { --project: var(--color-violet-400);  --project-soft: rgb(167 139 250 / 0.12); }
@@ -93,6 +96,10 @@
 }
 
 @theme {
+  /* Global accent: Acid Lime (project accents are separate, below). */
+  --color-acid-lime: #c6f135;
+  --color-acid-lime-deep: #4d6800;
+
   /* Typography */
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: "Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
@@ -157,8 +164,70 @@
   }
 }
 
-/* App shell follows the theme. Page content that still hardcodes black and
-   white is wrapped in its own dark container (see src/pages). */
+/* Footer metallic palette, scoped to `.footer-metal` only (global accents are
+   untouched). --metal-1…5 run from the background tone toward the strongest
+   tone, so the same wave layers work in both themes: deeper charcoal and
+   silver edges on dark, soft silver and graphite edges on light. The theme
+   text tokens are re-pointed inside the footer so existing classes follow. */
+.footer-metal {
+  --metal-bg: #eeeff0;
+  --metal-1: #e4e6e8;
+  --metal-2: #d5d8db;
+  --metal-3: #a9afb4;
+  --metal-4: #6e7479;
+  --metal-5: #4f5458;
+  --metal-label: #4f5458;   /* small metallic text: 6.7:1 on the light footer */
+  --theme-canvas: var(--metal-bg);
+  --theme-fg: #151719;
+  --theme-fg-muted: #555b60;
+  --theme-fg-subtle: #555b60;
+  --theme-line: rgb(21 23 25 / 0.12);
+  --theme-line-strong: rgb(21 23 25 / 0.22);
+  background-color: var(--metal-bg);
+  color: var(--theme-fg);
+}
+
+.dark .footer-metal {
+  --metal-bg: #090a0b;
+  --metal-1: #151719;
+  --metal-2: #24282b;
+  --metal-3: #555b60;
+  --metal-4: #aeb4b9;
+  --metal-5: #d9dde0;
+  --metal-label: #aeb4b9;   /* metallic silver: 9.5:1 on #090a0b */
+  --theme-fg: #f2f2f0;
+  --theme-fg-muted: #92989d;
+  --theme-fg-subtle: #92989d;
+  --theme-line: rgb(174 180 185 / 0.12);
+  --theme-line-strong: rgb(174 180 185 / 0.22);
+}
+
+/* Footer waves (AnimatedWaveFooter): each layer is two identical tiles wide
+   and slides by exactly one tile, so the loop is seamless. Paused until the
+   footer is near the viewport; static under reduced motion. */
+@keyframes wave-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.wave-layer {
+  animation-name: wave-drift;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+}
+
+[data-waves="active"] .wave-layer {
+  animation-play-state: running;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave-layer {
+    animation: none;
+  }
+}
+
+/* App shell follows the theme. */
 :root {
   color-scheme: light;
 }

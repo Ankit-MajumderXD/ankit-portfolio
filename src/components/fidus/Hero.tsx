@@ -1,94 +1,49 @@
-import { Link } from "react-router-dom";
-import heroImg from "../../assets/case-studies/fidus-hero.png";
-import { motion } from "framer-motion";
+import heroImg from "../../assets/case-studies/fidus-hero.webp";
+import CaseStudyHero from "../case-study/CaseStudyHero";
+import ButtonLink from "../ui/ButtonLink";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden">
-
-      {/* Cyan Glow */}
-      <div className="absolute left-1/2 top-1/2 h-175 w-175 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-500/15 blur-[180px]" />
-
-      <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-20 px-8 py-32 md:flex-row md:px-20">
-
-        {/* Left */}
-        <motion.div
-          className="flex-1"
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ 
-            duration: 0.9,
-            ease: "easeOut",
-          }}
-        >
-          <Link
-            to="/"
-            state={{ scrollTo: "projects" }}
-            className="text-sm uppercase tracking-[0.3em] text-gray-500 transition hover:text-white"
-          >
-            ← Back to Portfolio
-          </Link>
-
-          <p className="mt-16 text-sm uppercase tracking-[0.45em] text-cyan-400">
-            Healthcare AI Platform
-          </p>
-
-          <h1 className="mt-8 text-5xl sm:text-6xl md:text-7xl lg:text-[8rem] font-black leading-none">
-            FIDUS
-          </h1>
-
-          <h2 className="mt-8 max-w-3xl text-2xl font-light leading-tight md:text-5xl">
-            AI-Powered
-            <br />
-            Healthcare
-            <br />
-            Ecosystem
-          </h2>
-
-          <p className="mt-10 max-w-2xl text-lg leading-9 text-gray-400">
-            Connecting patients with verified specialists through
-            intelligent recommendations, teleconsultation,
-            personalized healthcare guidance and population-level
-            health analytics.
-          </p>
-
-          <motion.div className="mt-16 flex flex-wrap gap-5">
-
-            <a
-              href="#architecture"
-              className="rounded-full bg-white px-10 py-5 font-semibold text-black transition hover:scale-105"
-            >
-              Explore Platform
-            </a>
-
-            <a
-              href="#footer"
-              className="rounded-full border border-white/20 px-10 py-5 transition hover:bg-white/10"
-            >
-              Connect
-            </a>
-
-          </motion.div>
-
-        </motion.div>
-
-        {/* Right */}
-
-        <motion.div className="flex-1">
-
-          <motion.div className="overflow-hidden rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-xl">
-
+    <CaseStudyHero
+      projectId="fidus"
+      eyebrow="Healthcare AI Platform"
+      title="FIDUS"
+      subtitle="AI-Powered Healthcare Ecosystem"
+      description={
+        <p>
+          Connecting patients with verified specialists through intelligent
+          recommendations, teleconsultation, personalized healthcare guidance
+          and population-level health analytics.
+        </p>
+      }
+      actions={
+        // In-page jumps through ScrollManager (router state).
+        <>
+          <ButtonLink to="." state={{ scrollTo: "architecture" }} variant="primary">
+            Explore Platform
+          </ButtonLink>
+          <ButtonLink to="." state={{ scrollTo: "footer" }} variant="secondary">
+            Connect
+          </ButtonLink>
+        </>
+      }
+      media={
+        <figure>
+          {/* The 2:1 logo artwork (with its own black background) fills this 2:1 frame exactly. */}
+          <div className="overflow-hidden rounded-panel border border-line bg-surface-2">
             <img
               src={heroImg}
               alt="Fidus logo"
-              className="w-full object-cover"
+              width={1600}
+              height={800}
+              decoding="async"
+              fetchPriority="high"
+              className="aspect-[2/1] w-full object-contain"
             />
-
-          </motion.div>
-
-        </motion.div>
-
-      </div>
-    </section>
+          </div>
+          <figcaption className="mt-3 font-mono text-xs text-fg-subtle">Project logo</figcaption>
+        </figure>
+      }
+    />
   );
 }
